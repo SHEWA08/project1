@@ -1,69 +1,84 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FootballPro — Авторизация</title>
-  <link rel="stylesheet" href="main.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FootballPro - Магазин футбольного снаряжения</title>
+  <link rel="stylesheet" href="main.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="auth-container">
-    <button id="login-button" class="outline">Войти</button>
-    <button id="register-button" class="gold">Регистрация</button>
-  </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">⚽ FootballPro</div>
+      <nav class="nav-menu">
+        <a href="#">Бутсы</a>
+        <a href="#">Мячи</a>
+        <a href="#">Форма</a>
+        <a href="#">Аксессуары</a>
+      </nav>
+      <div class="actions">
+        <input type="text" placeholder="Поиск...">
+        <button id="cart-button">🛒 <span id="cart-count">0</span></button>
+        <button id="login-button" class="outline">Войти</button>
+        <button id="register-button" class="gold">Регистрация</button>
+      </div>
+    </div>
+  </header>
 
-  <!-- Модальное окно -->
+  <section class="hero">
+    <h1>Футбольный ассортимент высшего качества</h1>
+    <button class="gold">Смотреть новинки</button>
+  </section>
+
+  <section class="specials">
+    <h2>Акции и спецпредложения</h2>
+    <div class="products">
+      <!-- Карточки товаров сюда -->
+    </div>
+  </section>
+
+  <section class="categories">
+    <h2>Категории товаров</h2>
+    <div class="category-grid">
+      <!-- Категории сюда -->
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <h4>О магазине</h4>
+        <a href="#">О нас</a>
+        <a href="#">Блог</a>
+      </div>
+      <div>
+        <h4>Помощь</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Руководства</a>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <p>ул. Спортивная, 10</p>
+        <p>+7 (999) 123-45-67</p>
+      </div>
+      <div>
+        <h4>Подписка</h4>
+        <input type="email" placeholder="Ваш email">
+        <button>Подписаться</button>
+      </div>
+    </div>
+    <div class="copyright">&copy; 2025 FootballPro</div>
+  </footer>
+
   <div id="modal-overlay" class="modal-overlay hidden">
     <div class="modal">
       <h2 id="modal-title">Войти</h2>
-      <input type="email" placeholder="Email" id="email-input" />
-      <input type="password" placeholder="Пароль" id="password-input" />
-      <button class="gold" id="submit-button">Отправить</button>
-      <p><a href="#" id="switch-modal">Переключиться на Регистрацию</a></p>
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Пароль">
+      <button id="submit-modal">Отправить</button>
+      <p><a href="#" id="switch-modal">Нет аккаунта? Зарегистрироваться</a></p>
     </div>
   </div>
-
-  <script>
-    const loginButton = document.getElementById('login-button');
-    const registerButton = document.getElementById('register-button');
-    const modalOverlay = document.getElementById('modal-overlay');
-    const modalTitle = document.getElementById('modal-title');
-    const switchModalLink = document.getElementById('switch-modal');
-    const submitButton = document.getElementById('submit-button');
-
-    loginButton.addEventListener('click', () => {
-      modalTitle.textContent = 'Войти';
-      switchModalLink.textContent = 'Переключиться на Регистрацию';
-      modalOverlay.classList.remove('hidden');
-    });
-
-    registerButton.addEventListener('click', () => {
-      modalTitle.textContent = 'Регистрация';
-      switchModalLink.textContent = 'Переключиться на Вход';
-      modalOverlay.classList.remove('hidden');
-    });
-
-    switchModalLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (modalTitle.textContent === 'Войти') {
-        modalTitle.textContent = 'Регистрация';
-        switchModalLink.textContent = 'Переключиться на Вход';
-      } else {
-        modalTitle.textContent = 'Войти';
-        switchModalLink.textContent = 'Переключиться на Регистрацию';
-      }
-    });
-
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target.id === 'modal-overlay') {
-        modalOverlay.classList.add('hidden');
-      }
-    });
-
-    submitButton.addEventListener('click', () => {
-      // Здесь можно вставить валидацию, отправку на сервер и т.д.
-      window.location.href = 'main.html'; // Переход на будущую главную страницу
-    });
-  </script>
 </body>
 </html>
